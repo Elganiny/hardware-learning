@@ -1,0 +1,6 @@
+"Refs","Value","Footprint","Qty","DNP"
+"D1","LED","LED_SMD:LED_0603_1608Metric","1",""
+"J1","Conn_01x03_Pin","Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical","1",""
+"R1","270","Resistor_SMD:R_0603_1608Metric","1",""
+"R2","10k","Resistor_SMD:R_0603_1608Metric","1",""
+"SW1","SW_Push","Button_Switch_THT:SW_PUSH_6mm","1",""
