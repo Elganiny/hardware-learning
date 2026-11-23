@@ -14,6 +14,8 @@ Every project folder has the KiCad files, a PDF of the schematic, 3D renders, a 
 
 "Designed" means schematic and PCB are finished and pass KiCad's checks. Boards that were manufactured and tested will say so, with measurements.
 
+Units without their own board are written up in the [learning log](learning-log/).
+
 ## How I work
 
 1. Learn one topic from a complete, documented design (currently Raspberry Pi's *Hardware design with RP2040*).
