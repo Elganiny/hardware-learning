@@ -99,20 +99,6 @@ A reset button goes from RUN **to GND**. Wired to 3.3 V it would do nothing.
 > - The final flash clock after boot2 is set by software (the Pico SDK). I didn't check its default, so I give no number for it.
 > - I assumed RUN's internal pull-up is in the same 50–80 kΩ range as the other pins. The datasheet table I used is for the digital I/Os in general.
 
-## German words I learned
-
-| Deutsch | English |
-|---|---|
-| der Flash-Speicher | flash memory |
-| flüchtig / nichtflüchtig | volatile / non-volatile |
-| die Chipauswahl | chip select |
-| der Takt | clock |
-| die Prüfsumme | checksum |
-| die Steckbrücke | jumper |
-| der Spannungsteiler | voltage divider |
-| nicht bestücken (DNP) | do not populate |
-| zurücksetzen | to reset |
-
 ## Why no project after R2
 
 Flash and boot only make sense on a board with an RP2040, and an RP2040 board also needs the crystal (R3) and USB (R4) before it can be programmed. So this circuit goes into **P02 Mini-Dashboard V3** after R4: flash + decoupling, 1 kΩ to a BOOTSEL button, and a reset button on RUN.

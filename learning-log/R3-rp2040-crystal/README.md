@@ -130,27 +130,6 @@ The full chain from power-on: RUN high → bootrom on the ROSC → flash (R2) �
 > - I didn't have Abracon's own crystal datasheet, so I can't say how many ppm the 0.5 pF load-capacitance mismatch costs. It should be small next to the crystal's own ±30 ppm.
 > - I don't know how the SDK behaves if the crystal never starts (wait forever or time out).
 
-## German words I learned
-
-| Deutsch | English |
-|---|---|
-| der Quarz | crystal |
-| der Quarzoszillator | crystal oscillator |
-| der Takt / die Taktfrequenz | clock / clock frequency |
-| der Ringoszillator | ring oscillator |
-| die Genauigkeit | accuracy |
-| piezoelektrisch | piezoelectric |
-| der Verstärker | amplifier |
-| anschwingen / die Einschwingzeit | to start oscillating / start-up time |
-| die Lastkapazität | load capacitance |
-| die Streukapazität | stray capacitance |
-| in Reihe geschaltet | connected in series |
-| das Dielektrikum | dielectric |
-| der Serienwiderstand | series resistor |
-| übersteuern | to over-drive |
-| die PLL (Phasenregelschleife) | phase-locked loop |
-| der Teiler | divider |
-
 ## Why no project after R3
 
 A crystal alone doesn't make a board do anything new: you only see it work once USB is there. So this block goes into **P02 Mini-Dashboard V3** after R4, exactly as Raspberry Pi drew it: ABM8-272-T3, 2 × 15 pF C0G, 1 kΩ on XOUT, all close to the chip.
