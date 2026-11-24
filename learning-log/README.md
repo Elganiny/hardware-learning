@@ -5,3 +5,4 @@ Short notes on what I learned in each unit, written in my own words. Units that 
 | Unit | Topic | Date | Used in |
 |---|---|---|---|
 | [R2](R2-rp2040-flash-and-boot/) | RP2040: flash memory, QSPI, boot sequence, USB boot, reset | 2026-11-23 | P02 (planned) |
+| [R3](R3-rp2040-crystal/) | RP2040: 12 MHz crystal, load capacitors, drive level, PLLs | 2026-11-23 | P02 (planned) |
