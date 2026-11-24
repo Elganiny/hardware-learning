@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="820" height="340" font-family="'Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="15" fill="#1e1e1e">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.5"/>
+    </filter>
+  </defs>
+  <rect width="820" height="340" rx="14" fill="#ffffff"/>
+  <text x="24" y="32" font-size="18">What the crystal "sees" between its two pins: the load capacitance</text>
+
+  <g filter="url(#rough)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- crystal at top, pins at (80,110) and (340,110) -->
+    <line x1="60" y1="110" x2="170" y2="110" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="170" y1="90" x2="170" y2="130" stroke="#1e1e1e" stroke-width="3"/>
+    <rect x="178" y="94" width="44" height="32" rx="3" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+    <line x1="230" y1="90" x2="230" y2="130" stroke="#1e1e1e" stroke-width="3"/>
+    <line x1="230" y1="110" x2="360" y2="110" stroke="#1e1e1e" stroke-width="2"/>
+    <!-- left down to C2 -->
+    <line x1="60" y1="110" x2="60" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="60" y1="200" x2="100" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="100" y1="182" x2="100" y2="218" stroke="#1e1e1e" stroke-width="3"/>
+    <line x1="110" y1="182" x2="110" y2="218" stroke="#1e1e1e" stroke-width="3"/>
+    <line x1="110" y1="200" x2="200" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <!-- GND node in middle -->
+    <circle cx="200" cy="200" r="4" fill="#1e1e1e" stroke="#1e1e1e"/>
+    <line x1="200" y1="200" x2="200" y2="222" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="186" y1="222" x2="214" y2="222" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="192" y1="228" x2="208" y2="228" stroke="#1e1e1e" stroke-width="2"/>
+    <!-- C3 -->
+    <line x1="200" y1="200" x2="290" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="290" y1="182" x2="290" y2="218" stroke="#1e1e1e" stroke-width="3"/>
+    <line x1="300" y1="182" x2="300" y2="218" stroke="#1e1e1e" stroke-width="3"/>
+    <line x1="300" y1="200" x2="360" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <line x1="360" y1="110" x2="360" y2="200" stroke="#1e1e1e" stroke-width="2"/>
+    <!-- series path highlight -->
+    <path d="M 60,250 L 360,250" stroke="#1971c2" stroke-width="2"/>
+    <line x1="60" y1="244" x2="60" y2="256" stroke="#1971c2" stroke-width="2"/>
+    <line x1="360" y1="244" x2="360" y2="256" stroke="#1971c2" stroke-width="2"/>
+    <!-- stray cap dashed, parallel -->
+    <path d="M 60,110 C 60,60 360,60 360,110" stroke="#f08c00" stroke-width="2" stroke-dasharray="6 5"/>
+    <!-- divider -->
+    <line x1="420" y1="50" x2="420" y2="320" stroke="#ced4da" stroke-width="1.5" stroke-dasharray="6 6"/>
+  </g>
+
+  <text x="200" y="150" text-anchor="middle" font-size="14">X1</text>
+  <text x="105" y="176" text-anchor="middle" font-size="14">C2 15 pF</text>
+  <text x="295" y="176" text-anchor="middle" font-size="14">C3 15 pF</text>
+  <text x="210" y="274" text-anchor="middle" font-size="14" fill="#1971c2">C2 → GND → C3: in SERIES</text>
+  <text x="210" y="62" text-anchor="middle" font-size="14" fill="#f08c00">stray: traces + pins ≈ 3 pF (guide's guess)</text>
+  <text x="210" y="306" text-anchor="middle" font-size="13" fill="#495057">GND is just the middle point of the chain</text>
+
+  <text x="440" y="80">Two caps in series:</text>
+  <text x="440" y="108" fill="#1971c2">15 · 15 / (15 + 15) = 7.5 pF</text>
+  <text x="440" y="146">Stray capacitance is in parallel,</text>
+  <text x="440" y="168">so it simply adds:</text>
+  <text x="440" y="196" fill="#f08c00">7.5 pF + 3 pF = 10.5 pF</text>
+  <text x="440" y="236">The crystal wants:</text>
+  <text x="440" y="262" fill="#2f9e44">C_L = 10 pF   →  10.5 pF is close ✓</text>
+  <text x="440" y="304" font-size="13" fill="#495057">Rule for equal caps: C = 2 · (C_L − C_stray)</text>
+  <text x="440" y="324" font-size="13" fill="#495057">= 2 · (10 − 3) = 14 pF → nearest standard value 15 pF</text>
+</svg>

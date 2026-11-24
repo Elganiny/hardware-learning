@@ -23,14 +23,7 @@ The smallest block on the board, four parts:
 
 The crystal does not run the chip directly. Two **PLLs** (frequency multipliers inside the chip) turn it into the clocks the chip uses:
 
-```mermaid
-flowchart LR
-    X[Crystal 12 MHz] --> XOSC[XOSC in the RP2040]
-    XOSC --> PS[PLL_SYS: 12 × 125 ÷ 6 ÷ 2]
-    XOSC --> PU[PLL_USB: 12 × 100 ÷ 5 ÷ 5]
-    PS --> CPU[125 MHz: processors]
-    PU --> USB[48 MHz: USB]
-```
+![From one 12 MHz crystal to every clock in the chip](images/clock_tree.svg)
 
 So if the 12 MHz is exact, everything else is exact too.
 
@@ -47,11 +40,15 @@ A **crystal** is a small slice of quartz that vibrates at one very exact frequen
 - The ROSC can be from 72 % too slow to 85 % too fast, about **10 000× worse**.
 - The RP2040 itself tolerates up to 1000 ppm on the crystal, so this crystal is well inside.
 
+![How exact is each clock?](images/clock_accuracy.png)
+
 Rule: **if anything on the board needs exact time (USB!), you need a crystal.** Without it the chip still boots, but USB, and with it USB boot from R2, won't work.
 
 ## 2. How a crystal makes a frequency: the oscillator loop
 
 A crystal has no power pin. Quartz is **piezoelectric**: a voltage bends it, and bending it makes a voltage. Put it in a loop with an **amplifier**: the amplifier pushes, the crystal rings and sends the signal back, the amplifier pushes again. Only the crystal's own frequency survives the loop. This is a **Pierce oscillator**, and almost every microcontroller uses it.
+
+![The crystal oscillator loop](images/pierce_loop.svg)
 
 - The **amplifier is inside the RP2040**, between XIN (input) and XOUT (output). The datasheet calls it the **XOSC**.
 - The board only adds what the chip can't contain: the crystal, the two capacitors and R5.
@@ -65,6 +62,8 @@ A crystal has no power pin. Quartz is **piezoelectric**: a voltage bends it, and
 A crystal's exact frequency depends a little on the capacitance around it. The maker tells you which capacitance gives exactly 12.000 MHz: the **load capacitance** C_L. For the ABM8-272-T3, **C_L = 10 pF**.
 
 Seen from the crystal, C2 and C3 are **in series** (pin 1 → C2 → GND → C3 → pin 3). The **stray capacitance** of traces and pins adds on top; the guide assumes about **3 pF**.
+
+![What the crystal sees: the load capacitance](images/load_capacitance.svg)
 
 Working backwards:
 
